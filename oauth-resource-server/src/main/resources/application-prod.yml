@@ -1,0 +1,43 @@
+server:
+ servlet:
+  context-path: /oauth-resource
+ port: 8082
+
+logging:
+ level:
+  org: INFO
+
+paypal:
+ clientID: ATHIgUVy2euO1u8PPm0ozrkMl8Ph8ZynnL8e0n83wD5F-CABD4BZZ8U1n3wmLb_Z5xi2C8KvpaGeU6_B
+ clientSecret: ENfcxAo90CIiE_f9aq6mktUmodtYhmXqLIqqhl6s0zkdQht8ibzraSODbwLaN7porUvqAZSVNrJ-2cuv
+ executionMode: sandbox
+ url:
+  checkout:
+   orders: https://api.sandbox.paypal.com/v2/checkout/orders/%s
+  gettoken: https://api.sandbox.paypal.com/v1/oauth2/token
+
+
+spring:
+ autoconfigure:
+  exclude: org.springframework.boot.autoconfigure.mongo.MongoAutoConfiguration
+
+mongodb:
+ primary:
+   host: localhost
+   port: 27017
+   database: second
+
+host:
+ full:
+  dns:
+   auth:
+    link: https://localhost:8081/oauth-server/oauth/authorize
+
+app:
+ client:
+  id: userBuildClientIdPassword
+  secret: secret
+auth:
+ server:
+  schem: https
+

@@ -1,0 +1,124 @@
+get token access
+
+curl -X POST -i --user userBuildClientIdPassword:secret http://localhost:8081/oauth-server/oauth/token -d 'grant_type=password' -d 'username=tom' -d 'password=111';
+
+access page
+
+curl -X GET http://localhost:8082/oauth-resource/building/list?access_token=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJ0b20iLCJzY29wZSI6WyJ1c2VyYnVpbGQiLCJyZWFkIiwid3JpdGUiXSwib3JnYW5pemF0aW9uIjoidG9tc2tyeCIsImV4cCI6MTU2MjYyMzA1OSwiYXV0aG9yaXRpZXMiOlsidXNlciJdLCJqdGkiOiI4ZjMyNWJkYy01ODIwLTRlZDUtYmRiOS00ZWRhN2YzNDVlMzAiLCJjbGllbnRfaWQiOiJ1c2VyQnVpbGRDbGllbnRJZFBhc3N3b3JkIn0.G_cO-5L66t6XLMNHPhobArknSWjRCnkoL5UPxSgMJoaRVojhM-YM4jeRgocUo2rcodXgR5QyKyraWaDgdgH9hiakL2hzbWMupfKPQvCHBaTlP557elzRAJa6ptrSu4ezbg67AoFOJFO2LJCBq4w4FrspoC1ns-XK3ns3bm4avgEvl8Kq5uIdC9PIXHgnLIgHFo4SXDtTkdlDmn5f3JTsZL7dp7DqIRyO1N1evfOEOIexRN9ZKiD7T5DkdNfv05b9zWENhMg9UlzRyyg3DVrnt3eC_M7qsrUqFRD8IPi972gCBql6OtPfwD6doZMjFc8MVUPnDo2rgvUnr5tztRC2Hg
+
+
+curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{"coords": [[ 0 ]],"floorHeight": 0, "floors": 0, "height": 0, "name": "string", "ownerId": 0 }' 'http://localhost:8082/oauth-resource/building?access_token=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJ0b20iLCJzY29wZSI6WyJ1c2VyYnVpbGQiLCJyZWFkIiwid3JpdGUiXSwib3JnYW5pemF0aW9uIjoidG9tc2tyeCIsImV4cCI6MTU2MjYyMzA1OSwiYXV0aG9yaXRpZXMiOlsidXNlciJdLCJqdGkiOiI4ZjMyNWJkYy01ODIwLTRlZDUtYmRiOS00ZWRhN2YzNDVlMzAiLCJjbGllbnRfaWQiOiJ1c2VyQnVpbGRDbGllbnRJZFBhc3N3b3JkIn0.G_cO-5L66t6XLMNHPhobArknSWjRCnkoL5UPxSgMJoaRVojhM-YM4jeRgocUo2rcodXgR5QyKyraWaDgdgH9hiakL2hzbWMupfKPQvCHBaTlP557elzRAJa6ptrSu4ezbg67AoFOJFO2LJCBq4w4FrspoC1ns-XK3ns3bm4avgEvl8Kq5uIdC9PIXHgnLIgHFo4SXDtTkdlDmn5f3JTsZL7dp7DqIRyO1N1evfOEOIexRN9ZKiD7T5DkdNfv05b9zWENhMg9UlzRyyg3DVrnt3eC_M7qsrUqFRD8IPi972gCBql6OtPfwD6doZMjFc8MVUPnDo2rgvUnr5tztRC2Hg'
+
+
+curl -X POST -i --user userBuildClientIdPassword:secret http://localhost:8081/oauth-server/oauth/token -d 'grant_type=refresh_token' -d 'username=tom' -d 'password=111' -d 'refresh_token=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJ0b20iLCJzY29wZSI6WyJ1c2VyYnVpbGQiLCJyZWFkIiwid3JpdGUiXSwib3JnYW5pemF0aW9uIjoidG9tVE9hbiIsImF0aSI6IjMzZmJkNmE1LWVhY2QtNDJlNi05Y2FiLTNiNDkwZWE3YmMyZCIsImV4cCI6MTU2MjY0MDA2NiwiYXV0aG9yaXRpZXMiOlsidXNlciJdLCJqdGkiOiI5N2QzZjViMy1iZjAxLTQwN2EtOTg4NS1mYmJjOGMyYzdjM2MiLCJjbGllbnRfaWQiOiJ1c2VyQnVpbGRDbGllbnRJZFBhc3N3b3JkIn0.NEvMs5MzH3Dy-T85-ty-W4C64vjNvNc4Hn2xYGguOAo1DM1UyQzznUM-x_f4khpQzcZi6l-17hCQam0Kgonxkm4KN1BejA7tTmmkCkeGs8Ko_g2m0RpwVA2HhgKMA0M8IkTEUUgE_BjYVXwryjLzPQhHDOIkGLXefeY2QM16AoaBa9Ebncal6Hl-upLmDr8UBIvwj6OhDBMQeoq4AtlIfH2W-1w4kdhNdt1GuC5UZIJ_cAz6KXjlbyGBr-xGnnJ7fuF6r2VZWxXvk2-2z-iV7vaFqx92SCkiiy5akIlZ4Oc8C1Lf_XFFHfpbISsPDDFl81ugLQQxU_O7jv1soev9SA';
+
+refresh
+
+curl -X POST -i --user userBuildClientIdPassword:secret http://localhost:8081/oauth-server/oauth/token -d 'grant_type=refresh_token' -d 'username=tom' -d 'password=111' -d 'refresh_token=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJ0b20iLCJzY29wZSI6WyJ1c2VyYnVpbGQiLCJyZWFkIiwid3JpdGUiXSwib3JnYW5pemF0aW9uIjoidG9tY1RTTiIsImV4cCI6MTU2MjYzODY4MSwiYXV0aG9yaXRpZXMiOlsidXNlciJdLCJqdGkiOiI5MmIzZjE1ZS1kMWZmLTQwZmMtOGUxNy1kN2FmZWY4ZjNiYWUiLCJjbGllbnRfaWQiOiJ1c2VyQnVpbGRDbGllbnRJZFBhc3N3b3JkIn0.LVb9XXnVsfwwIyVda_cpsKocXNE6OLomVEK7rCLHtR3vk4adp9aGnRZGsR6ipJSkxRG4ALsODywBd6OhScJaHqD_vVX2QobfBR6I2Bk59PTSIE3H2XbSaz6FUF_HvM35MXWho7uFt9dfmCh2csLwmDYKm913u-ZKZifpYEZ007-MfBpvXfMZwLiR2uISaY6rB-D5vG9XSFqbY1kFeLosxUUlTh2NxHsbgt4fZ2GLzz7pVNX5m-yNug5CO0MutuO_KwTbCd1EfuPHy1T3U1tgBuAsw-juYVBSetAvAKP9u5asXuFy-jMXyha8yezgCvLFL5phcTajUdYWYEKaE0Kvvg';
+
+
+
+
+7.1. Generate JKS Java KeyStore File
+Let’s first generate the keys – and more specifically a .jks file – using the command line tool keytool
+
+keytool -genkeypair -alias mytest 
+                    -keyalg RSA 
+                    -keypass mypass 
+                    -keystore mytest.jks 
+                    -storepass mypass
+The command will generate a file called mytest.jks which contains our keys -the Public and Private keys.
+
+Also make sure keypass and storepass are the same.
+
+7.2. Export Public Key
+Next, we need to export our Public key from generated JKS, we can use the following command to do so
+
+keytool -list -rfc --keystore mytest.jks | openssl x509 -inform pem -pubkey
+A sample response will look like this
+
+//-----BEGIN PUBLIC KEY-----
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAgIK2Wt4x2EtDl41C7vfp
+OsMquZMyOyteO2RsVeMLF/hXIeYvicKr0SQzVkodHEBCMiGXQDz5prijTq3RHPy2
+/5WJBCYq7yHgTLvspMy6sivXN7NdYE7I5pXo/KHk4nz+Fa6P3L8+L90E/3qwf6j3
+DKWnAgJFRY8AbSYXt1d5ELiIG1/gEqzC0fZmNhhfrBtxwWXrlpUDT0Kfvf0QVmPR
+xxCLXT+tEe1seWGEqeOLL5vXRLqmzZcBe1RZ9kQQm43+a9Qn5icSRnDfTAesQ3Cr
+lAWJKl2kcWU1HwJqw+dZRSZ1X4kEXNMyzPdPBbGmU6MHdhpywI7SKZT7mX4BDnUK
+eQIDAQAB
+//-----END PUBLIC KEY-----
+//-----BEGIN CERTIFICATE-----
+MIIDCzCCAfOgAwIBAgIEGtZIUzANBgkqhkiG9w0BAQsFADA2MQswCQYDVQQGEwJ1
+czELMAkGA1UECBMCY2ExCzAJBgNVBAcTAmxhMQ0wCwYDVQQDEwR0ZXN0MB4XDTE2
+MDMxNTA4MTAzMFoXDTE2MDYxMzA4MTAzMFowNjELMAkGA1UEBhMCdXMxCzAJBgNV
+BAgTAmNhMQswCQYDVQQHEwJsYTENMAsGA1UEAxMEdGVzdDCCASIwDQYJKoZIhvcN
+AQEBBQADggEPADCCAQoCggEBAICCtlreMdhLQ5eNQu736TrDKrmTMjsrXjtkbFXj
+Cxf4VyHmL4nCq9EkM1ZKHRxAQjIhl0A8+aa4o06t0Rz8tv+ViQQmKu8h4Ey77KTM
+urIr1zezXWBOyOaV6Pyh5OJ8/hWuj9y/Pi/dBP96sH+o9wylpwICRUWPAG0mF7dX
+eRC4iBtf4BKswtH2ZjYYX6wbccFl65aVA09Cn739EFZj0ccQi10/rRHtbHlhhKnj
+iy+b10S6ps2XAXtUWfZEEJuN/mvUJ+YnEkZw30wHrENwq5QFiSpdpHFlNR8CasPn
+WUUmdV+JBFzTMsz3TwWxplOjB3YacsCO0imU+5l+AQ51CnkCAwEAAaMhMB8wHQYD
+VR0OBBYEFOGefUBGquEX9Ujak34PyRskHk+WMA0GCSqGSIb3DQEBCwUAA4IBAQB3
+1eLfNeq45yO1cXNl0C1IQLknP2WXg89AHEbKkUOA1ZKTOizNYJIHW5MYJU/zScu0
+yBobhTDe5hDTsATMa9sN5CPOaLJwzpWV/ZC6WyhAWTfljzZC6d2rL3QYrSIRxmsp
+/J1Vq9WkesQdShnEGy7GgRgJn4A8CKecHSzqyzXulQ7Zah6GoEUD+vjb+BheP4aN
+hiYY1OuXD+HsdKeQqS+7eM5U7WW6dz2Q8mtFJ5qAxjY75T0pPrHwZMlJUhUZ+Q2V
+FfweJEaoNB9w9McPe1cAiE+oeejZ0jq0el3/dJsx3rlVqZN+lMhRJJeVHFyeb3XF
+lLFCUGhA7hxn2xf3x1JW
+//-----END CERTIFICATE-----
+We take only our Public key and copy it to our resource server src/main/resources/public.txt
+
+//-----BEGIN PUBLIC KEY-----
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAgIK2Wt4x2EtDl41C7vfp
+OsMquZMyOyteO2RsVeMLF/hXIeYvicKr0SQzVkodHEBCMiGXQDz5prijTq3RHPy2
+/5WJBCYq7yHgTLvspMy6sivXN7NdYE7I5pXo/KHk4nz+Fa6P3L8+L90E/3qwf6j3
+DKWnAgJFRY8AbSYXt1d5ELiIG1/gEqzC0fZmNhhfrBtxwWXrlpUDT0Kfvf0QVmPR
+xxCLXT+tEe1seWGEqeOLL5vXRLqmzZcBe1RZ9kQQm43+a9Qn5icSRnDfTAesQ3Cr
+lAWJKl2kcWU1HwJqw+dZRSZ1X4kEXNMyzPdPBbGmU6MHdhpywI7SKZT7mX4BDnUK
+eQIDAQAB
+//-----END PUBLIC KEY-----
+Alternatively, we can export only the public key by adding the -noout argument
+
+keytool -list -rfc --keystore mytest.jks | openssl x509 -inform pem -pubkey -noout
+
+
+Creating a https connection
+
+first of all we need create a certificate, use the below command:
+
+keytool -genkeypair -alias alisson -keyalg RSA -keysize 2048 -storetype PKCS12 -keystore alisson.p12 -validity 3650
+
+--insecure
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

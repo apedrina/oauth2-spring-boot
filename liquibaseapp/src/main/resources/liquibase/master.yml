@@ -1,0 +1,4 @@
+databaseChangeLog:
+  - includeAll:
+      path: classpath*:liquibase/*.xml
+      errorIfMissingOrEmpty: false

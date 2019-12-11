@@ -1,0 +1,18 @@
+get access token
+
+curl -v https://api.sandbox.paypal.com/v1/oauth2/token \
+   -H "Accept: application/json" \
+   -H "Accept-Language: en_US" \
+   -u "ATHIgUVy2euO1u8PPm0ozrkMl8Ph8ZynnL8e0n83wD5F-CABD4BZZ8U1n3wmLb_Z5xi2C8KvpaGeU6_B:ENfcxAo90CIiE_f9aq6mktUmodtYhmXqLIqqhl6s0zkdQht8ibzraSODbwLaN7porUvqAZSVNrJ-2cuv" \
+   -d "grant_type=client_credentials"
+   
+   using this token
+   
+   curl -v -X GET https://api.sandbox.paypal.com/v1/payment-experience/web-profiles/XP-8YTH-NNP3-WSVN-3C76 \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer A21AAGWQ9pPuTDhY8vvHhc37e3AYs73E24qMc0pLPm9p_sG6W67mRE0yJJzpY9iIuXzKMdvSs8rF4VdQU008qTyjtWvAtydXg"
+  
+  
+  curl -v -X GET https://api.sandbox.paypal.com/v1/invoicing/invoices?page=3&page_size=4&total_count_required=true \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer A21AAGWQ9pPuTDhY8vvHhc37e3AYs73E24qMc0pLPm9p_sG6W67mRE0yJJzpY9iIuXzKMdvSs8rF4VdQU008qTyjtWvAtydXg"

@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd
+        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+	<changeSet author="alisson pedrina (script inicial exportado do banco de dados)" id="201907151007">
+		<sql>
+
+			drop table if exists oauth_client_details;
+			create table
+			oauth_client_details (
+			client_id VARCHAR(255) PRIMARY KEY,
+			resource_ids VARCHAR(255),
+			client_secret VARCHAR(255),
+			scope
+			VARCHAR(255),
+			authorized_grant_types VARCHAR(255),
+			web_server_redirect_uri VARCHAR(255),
+			authorities VARCHAR(255),
+			access_token_validity INTEGER,
+			refresh_token_validity INTEGER,
+			additional_information VARCHAR(4096),
+			autoapprove VARCHAR(255)
+			);
+
+			create table if not exists oauth_client_token (
+			token_id VARCHAR(255),
+			token BIT VARYING,
+			authentication_id VARCHAR(255) PRIMARY KEY,
+			user_name VARCHAR(255),
+			client_id VARCHAR(255)
+			);
+
+			create table if not
+			exists oauth_access_token (
+			token_id VARCHAR(255),
+			token BIT VARYING,
+			authentication_id VARCHAR(255) PRIMARY KEY,
+			user_name VARCHAR(255),
+			client_id VARCHAR(255),
+			authentication BIT VARYING,
+			refresh_token
+			VARCHAR(255)
+			);
+
+			create table if not exists oauth_refresh_token (
+			token_id VARCHAR(255),
+			token BIT VARYING,
+			authentication BIT VARYING
+			);
+
+			create table if not exists oauth_code (
+			code VARCHAR(255),
+			authentication BIT VARYING
+			);
+
+			create table if not exists
+			oauth_approvals (
+			userId VARCHAR(255),
+			clientId VARCHAR(255),
+			scope
+			VARCHAR(255),
+			status VARCHAR(10),
+			expiresAt TIMESTAMP,
+			lastModifiedAt
+			TIMESTAMP
+			);
+
+			create table if not exists ClientDetails (
+			appId
+			VARCHAR(255) PRIMARY KEY,
+			resourceIds VARCHAR(255),
+			appSecret
+			VARCHAR(255),
+			scope VARCHAR(255),
+			grantTypes VARCHAR(255),
+			redirectUrl
+			VARCHAR(255),
+			authorities VARCHAR(255),
+			access_token_validity INTEGER,
+			refresh_token_validity INTEGER,
+			additionalInformation VARCHAR(4096),
+			autoApproveScopes VARCHAR(255)
+			);
+
+			create table if not exists userapp (
+			id VARCHAR(255) PRIMARY KEY,
+			name VARCHAR(255),
+			password VARCHAR(255),
+			email VARCHAR(255),
+			is_valid boolean
+			);
+
+
+			INSERT INTO oauth_client_details
+			(client_id, client_secret, scope,
+			authorized_grant_types,
+			web_server_redirect_uri, authorities,
+			access_token_validity,
+			refresh_token_validity, additional_information,
+			autoapprove)
+			VALUES
+			('userBuildClientIdPassword',
+			'$2a$10$/C4MRI8fzMGUS4E.f.xc7uSR5LIpShyvxV3ESfUEg3gzhLUpLE3Gq',
+			'userbuild,read,write',
+			'password,authorization_code,refresh_token,client_credentials', null,
+			null, 36000, 36000, null, true);
+			INSERT INTO oauth_client_details
+			(client_id, client_secret, scope, authorized_grant_types,
+			web_server_redirect_uri, authorities, access_token_validity,
+			refresh_token_validity, additional_information, autoapprove)
+			VALUES
+			('sampleClientId',
+			'$2a$10$/C4MRI8fzMGUS4E.f.xc7uSR5LIpShyvxV3ESfUEg3gzhLUpLE3Gq',
+			'read,write,userbuild',
+			'implicit', null, null, 36000, 36000, null,
+			false);
+
+
+			INSERT INTO userapp (id, name, password, is_valid)
+			values(1,'tom','$2a$10$QdIhD0MoPvh.bFH8YktRu.NYdv0n178h//f5T44laKWpZgHPweBQi',
+			true) ON CONFLICT (id) DO update set password =
+			'$2a$10$QdIhD0MoPvh.bFH8YktRu.NYdv0n178h//f5T44laKWpZgHPweBQi';
+
+		</sql>
+	</changeSet>
+</databaseChangeLog>

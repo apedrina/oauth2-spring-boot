@@ -1,0 +1,36 @@
+logging:
+  level:
+    org:
+      springframework: ERROR
+security:
+  require-ssl: true
+server:
+  port: 8081
+  servlet:
+    context-path: /oauth-server
+  ssl:
+    key-alias: alisson
+    key-store: classpath:keystore/alisson.p12
+    key-store-password: 123456
+    key-store-type: PKCS12
+
+jdbc:
+  driverClassName: org.postgresql.Driver
+  pass: Postgres2019!
+  url: jdbc:postgresql://postgres-container:15432/postgres
+  user: postgres
+spring:
+  datasource:
+    initialization-mode: always
+    password: Postgres2019!
+    platform: postgres
+    url: jdbc:postgresql://postgres-container:15432/postgres
+    username: postgres
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        jdbc:
+          lob:
+            non_contextual_creation: true
