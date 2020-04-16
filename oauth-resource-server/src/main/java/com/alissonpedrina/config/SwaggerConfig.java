@@ -75,12 +75,12 @@ public class SwaggerConfig extends WebMvcConfigurerAdapter {
 
 	private OAuth securitySchema() {
 
-		var authorizationScopeList = new ArrayList<AuthorizationScope>();
+		List<AuthorizationScope> authorizationScopeList = new ArrayList<>();
 		authorizationScopeList.add(new AuthorizationScope("read", "read all"));
 		authorizationScopeList.add(new AuthorizationScope("trust", "trust all"));
 		authorizationScopeList.add(new AuthorizationScope("write", "access all"));
 
-		var grantTypes = new ArrayList<GrantType>();
+		List<GrantType> grantTypes = new ArrayList<>();
 		GrantType creGrant = new ResourceOwnerPasswordCredentialsGrant(authLink + "/oauth/token");
 
 		grantTypes.add(creGrant);

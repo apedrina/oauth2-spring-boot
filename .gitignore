@@ -3,7 +3,7 @@
 target/
 # Log file
 *.log
-
+*.iml
 # BlueJ files
 *.ctxt
 
@@ -18,12 +18,13 @@ target/
 *.zip
 *.tar.gz
 *.rar
-
+.ide
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 
 .DS_STORE
-
+*.project
+*.classpath
 /dist/
 /bazel-out
 /integration/bazel/bazel-*

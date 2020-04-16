@@ -14,8 +14,8 @@
 	</parent>
 
 	<dependencies>
-
-		<dependency>
+		<!-- JAVA 9 or higher -->
+		<!-- dependency>
 			<groupId>javax.xml.bind</groupId>
 			<artifactId>jaxb-api</artifactId>
 			<version>2.3.0</version>
@@ -34,7 +34,8 @@
 			<groupId>javax.activation</groupId>
 			<artifactId>activation</artifactId>
 			<version>1.1.1</version>
-		</dependency>
+		</dependency-->
+		<!-- end -->
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

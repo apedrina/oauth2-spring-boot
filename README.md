@@ -4,7 +4,7 @@ Here you will find an example of an Oauth2 Application using: SpringBoot, MongoD
 
 # How to docker
 
-First of all, we need start up the docker's container, therefore go to the root directory and run:
+First of all, we need start up the docker's container, therefore go to the docker directory and run:
 
 ```bash
 docker-compose up -d
@@ -33,7 +33,7 @@ mvn spring-boot:run -Dspring.profiles.active=dev
 To get the token-access:
 
 ```bash
-curl -X POST -i --user userBuildClientIdPassword:secret http://localhost:8081/oauth-server/oauth/token -d 'grant_type=password' -d 'username=tom' -d 'password=111';
+curl -X POST -i --user userBuildClientIdPassword:secret http://localhost:8888/oauth-server/oauth/token -d 'grant_type=password' -d 'username=tom' -d 'password=111';
 
 ```
 
